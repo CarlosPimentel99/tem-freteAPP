@@ -10,9 +10,7 @@ import {Picker} from '@react-native-picker/picker';
     const [cpf, setcpf] = useState('');
     const [placa, setPlaca] = useState('');    
     const navigation = useNavigation(); 
-    const [tipoMotorista, setTipoMotorista] = useState(
-        ['Autônomo', 'Funcionário', 'Gestor de Frota e Motorista', 'Gestor de Frota']
-    );
+    const [tipoMotorista, setTipoMotorista] = useState(['Autônomo', 'Funcionário', 'Gestor de Frota e Motorista', 'Gestor de Frota']);
     const [tipoMotoristaSelecionado, setTipoMotoristaSelecionado] = useState('');
 
     return (
@@ -65,10 +63,15 @@ import {Picker} from '@react-native-picker/picker';
 
                 <Text style={styles.title}>Tipo de Motorista</Text>                
                 <Picker
-                    selectedValue={'Selecione um Motorista'}
+                    selectedValue={tipoMotoristaSelecionado}
                     onValueChange={(itemValue, itemIndex) =>
-                        setSelectedLanguage(itemValue)
+                        setTipoMotoristaSelecionado(itemValue)
                     }>
+                        {
+                            tipoMotorista.map(tipo => {
+                                return <Picker.Item label={tipo} value={tipo} />
+                            })
+                        }
                         
                     <Picker.Item label="Java" value="java" />                    
                 </Picker>

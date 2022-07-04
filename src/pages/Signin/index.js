@@ -5,7 +5,6 @@ import { TextInputMask } from 'react-native-masked-text';
 import { useNavigation} from '@react-navigation/native';
 
 
-
 export default function Signin() {
   const [cpf, setcpf] = useState('');
   const navigation = useNavigation();
@@ -24,7 +23,7 @@ export default function Signin() {
               onChangeText={text => setcpf(text)}
               style={styles.input} 
               placeholder="Digite seu CPF"           
-              />
+            />
             <Text style={styles.title}>Senha</Text>
             <TextInput
               style={styles.input}          
@@ -35,7 +34,7 @@ export default function Signin() {
             <TouchableOpacity 
               style={styles.button}
               onPress={() => navigation.navigate('Home')}
-             >        
+            >        
               <Text style={styles.buttonText}>Acessar</Text>
             </TouchableOpacity>
 
