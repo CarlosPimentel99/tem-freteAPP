@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground} f
 import * as Animatable from 'react-native-animatable';
 import { TextInputMask } from 'react-native-masked-text';
 import { useNavigation} from '@react-navigation/native';
-import EfetuarLogin from '../../services/navigator';
+import EfetuarLogin from '../../services/Login';
+import { AsyncStorage } from 'react-native';
 
 export default function Signin() {  
   const [cpf, setcpf] = useState('');
@@ -13,8 +14,13 @@ export default function Signin() {
 
   const tentarLogar = async () => {
     try{            
-      const token = await EfetuarLogin(cpf, senha);
-      console.log(token)       
+      const token = await EfetuarLogin(cpf, senha);            
+      await AsyncStorage.setItem('instalura_token', token);
+      console.log(token);
+      const token2 = await AsyncStorage.getItem('instalura_token');
+      console.log(token2);
+      
+      //navigation.navigate('Home');      
     }catch(erro){
       setMessageErro(erro.message);
     }    

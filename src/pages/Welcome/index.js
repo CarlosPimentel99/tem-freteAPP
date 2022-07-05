@@ -8,9 +8,15 @@ import {
   } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation} from '@react-navigation/native';
+import { AsyncStorage } from 'react-native';
 
 export default function Welcome() {
-    const navigation = useNavigation();
+    const navigation = useNavigation();    
+    // const token2 = await AsyncStorage.getItem('instalura_token');
+    // console.log(token);
+    // // if(AsyncStorage.getItem('instalura_token')){
+    // //   navigation.navigate('Home');
+    // // }        
   return (
     <View style={styles.container}>
       <Image style={styles.containerFundo}

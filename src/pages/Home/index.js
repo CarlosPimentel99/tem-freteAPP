@@ -9,9 +9,20 @@ import {
 import { Card, Button, Searchbar } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation} from '@react-navigation/native';
+import { AsyncStorage } from 'react-native';
 
 export default function Home() {
     const navigation = useNavigation(); 
+
+    const deslogar = async () => {
+      try{            
+        AsyncStorage.removeItem('instalura_token');   
+        console.log(AsyncStorage.getItem('instalura_token'));           
+        navigation.navigate('Welcome');
+      }catch(erro){
+        setMessageErro(erro.message);
+      }    
+    }
 
     return (
         <View style={styles.container}>
@@ -19,7 +30,7 @@ export default function Home() {
         <Text style={styles.message}>Fretes</Text>        
         <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate('Signin')}
+            onPress={deslogar}
             >
             <Text style={styles.Logout}>Sair</Text>
           </TouchableOpacity>

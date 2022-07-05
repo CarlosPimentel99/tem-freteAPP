@@ -1,5 +1,4 @@
 import axios from "axios";
-import { PanResponder } from "react-native";
 
 const baseURL = "http://temfretecarga.com/temfreteapi/public/api/v1";
 
@@ -14,10 +13,15 @@ const efetuarLogin = async (usuarioLogin, senhaLogin) => {
         senha: senhaLogin
     });    
     
-    if(response.status === 200) {                  
-        return response.data.token;   
+    if(response.status === 200) {                          
+        if(response.data.status === "ok") {
+            return response.data.token;            
+        }
+        else {
+            throw new Error("CPF ou Senha inválidos!");
+        }
     } else {        
-        return null;
+        throw new Error("Erro ao efetuar login!");
     }
 }
 
