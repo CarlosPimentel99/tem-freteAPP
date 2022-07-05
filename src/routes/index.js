@@ -28,7 +28,7 @@ export default function Routes(){
                 name="RegisterMotorista"
                 component={RegisterMotorista}
                 options={{headerShown: false}}
-            />
+            />                        
         </Stack.Navigator>
     )
 }

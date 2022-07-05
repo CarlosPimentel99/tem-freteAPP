@@ -3,11 +3,23 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground} f
 import * as Animatable from 'react-native-animatable';
 import { TextInputMask } from 'react-native-masked-text';
 import { useNavigation} from '@react-navigation/native';
+//import AsyncStorage from '@react-native-community/async-storage';
+import EfetuarLogin from '../../services/Login';
 
-
-export default function Signin() {
+export default function Signin() {  
   const [cpf, setcpf] = useState('');
+  const [senha, setSenha] = useState('');
+  const [messageErro, setMessageErro] = useState('');
   const navigation = useNavigation();
+
+  const tentarLogar = async () => {
+    try{            
+      const token = await EfetuarLogin(cpf, senha); 
+      console.log(token)     
+    }catch(erro){
+      setMessageErro(erro.message);
+    }    
+  }
 
   return (
     <View style={styles.container}>
@@ -28,12 +40,13 @@ export default function Signin() {
             <TextInput
               style={styles.input}          
               secureTextEntry={true}
+              onChangeText={text => setSenha(text)}
               placeholder="Digite sua senha"           
             />
-
+            <Text style={styles.messageErro}>{messageErro}</Text>
             <TouchableOpacity 
               style={styles.button}
-              onPress={() => navigation.navigate('Home')}
+              onPress={tentarLogar}
             >        
               <Text style={styles.buttonText}>Acessar</Text>
             </TouchableOpacity>
@@ -63,6 +76,11 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',    
     color: '#FFFFFF',    
+  },
+  messageErro: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#FF0000',
   },
   containerForm: {      
     flex: 1,
