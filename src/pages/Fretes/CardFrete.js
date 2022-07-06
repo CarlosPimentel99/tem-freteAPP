@@ -1,54 +1,52 @@
-import React from 'react';
-import { 
-    View, 
-    Text, 
-    StyleSheet, 
-    Image,  
-    TouchableOpacity,
-  } from 'react-native';
+import React, { useEffect } from 'react';
 import { Card, Button, Searchbar } from 'react-native-paper';
-import * as Animatable from 'react-native-animatable';
-import { useNavigation} from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import ListagemFretes from '../Fretes/ListagemFretes';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  Image,  
+  TouchableOpacity,
+} from 'react-native';
 
-export default function Home() {
-    const navigation = useNavigation(); 
+function teste ({valor}){
+    return [valor, valor * 2, valor * 3];
+}
 
-    const deslogar = async () => {
-      try{                    
-        await AsyncStorage.removeItem('token');                 
-        navigation.replace('Welcome');
-      }catch(erro){
-        setMessageErro(erro.message);
-      }    
-    }
+const obj = {
+    valor: 123
+};
+
+const [x1,x2,x3] = teste(obj);
+
+export default function CardFrete({frete}){
+  const [carregado, setCarregado] = React.useState(false);
 
     return (
-        <View style={styles.container}>
-      <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-        <Text style={styles.message}>Fretes</Text>        
-        <TouchableOpacity 
-            style={styles.button}
-            onPress={deslogar}
-            >
-            <Text style={styles.Logout}>Sair</Text>
-          </TouchableOpacity>
-      </Animatable.View>
-      
-      <Animatable.View animation="fadeInUp" delay={1000} style={styles.containerForm}>                
-        <Image style={styles.containerFundo}
-          source={require('../../assets/fundo.png')}
-        />
-
-        <Searchbar style={styles.search} placeholder="Buscar..." />
-
-        <ListagemFretes/>
-
-      </Animatable.View>      
-    </View>
-    );        
+        <Card style={styles.card}>
+          <Card.Title title={frete.titulo}/>                                    
+          <Card.Content>
+              <Text style={styles.text}>Caminhão: Carreta</Text>                
+          </Card.Content>
+          <Card.Content>
+              <Text style={styles.text}>De: São Paulo - SP</Text>                
+          </Card.Content>
+          <Card.Content>
+              <Text style={styles.text}>Para: Cuíaba - MT</Text>                
+          </Card.Content>
+          <Card.Actions style={styles.containerBotao}>
+            <Button style={styles.botaoVisualizar} onPress={() => navigation.navigate('Signin')}>
+              <Text style={styles.textoBotaoVisualizar}>
+                    Visualizar
+              </Text>
+            </Button>
+            <Button onPress={() => navigation.navigate('Signin')} style={styles.botaoCompartilhar}>
+              <Text style={styles.textoBotaoCompartilhar}>Compartilhar</Text>
+            </Button>
+          </Card.Actions>
+        </Card>
+    );
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',      
       alignItems: 'center',      
       justifyContent: 'center',      
-
+  
     },
     botaoVisualizar: {
       backgroundColor: '#DF4B48',   
@@ -103,7 +101,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',    
         marginEnd: '3%',    
-
+  
       },
     Logout: {
         fontSize: 20,        

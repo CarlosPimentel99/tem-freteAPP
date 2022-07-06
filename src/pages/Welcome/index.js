@@ -8,8 +8,7 @@ import {
   } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation} from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import validarToken from '../../services/ValidarLogin';
+import validarToken from '../../services/ValidarToken';
 
 async function validaExistenciaToken() {  
   try {
@@ -20,14 +19,32 @@ async function validaExistenciaToken() {
     }
     return false
   } catch (erro) {
-    console.log("Deu pau: " + erro);
+    console.log(erro);
+    return false;    
   }
 }
 
 export default function Welcome() {
-    const navigation = useNavigation();        
-    const tokenExiste = validaExistenciaToken();
-    //console.log(tokenExiste);
+    const navigation = useNavigation();
+    const [existeToken, setExisteToken] = React.useState(false);  
+    const [carregado, setCarregado] = React.useState(false);    
+
+    validaExistenciaToken().then(res => {
+      setExisteToken(res);
+      setCarregado(true);
+    }
+    ).catch(err => {
+
+    });
+
+    if(!carregado){
+      return (
+        <Text>Aguarde</Text>
+      );
+    }
+    if (existeToken) {
+      navigation.navigate('Home');
+    }
     
   return (
     <View style={styles.container}>
@@ -42,7 +59,7 @@ export default function Welcome() {
       />            
       </View>
       
-        < Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
+        <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
           <Text style={styles.title}>Procurando alguma plataforma para encontrar frete?</Text>
           <Text style={styles.text}>Faça login para começar</Text>
 
