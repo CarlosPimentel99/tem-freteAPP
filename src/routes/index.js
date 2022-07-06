@@ -3,6 +3,7 @@ import Welcome from '../pages/Welcome';
 import Signin from '../pages/Signin';
 import Home from '../pages/Home';
 import RegisterMotorista from '../pages/RegisterMotorista';
+import Loading from '../pages/Loading/Loading';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ export default function Routes(){
                 component={RegisterMotorista}
                 options={{headerShown: false}}
             />                        
+            <Stack.Screen
+                name="Loading"
+                component={Loading}
+                options={{headerShown: false}}
+            />
         </Stack.Navigator>
     )
 }

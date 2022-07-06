@@ -9,6 +9,7 @@ import {
 import * as Animatable from 'react-native-animatable';
 import { useNavigation} from '@react-navigation/native';
 import validarToken from '../../services/ValidarToken';
+import Loading from '../Loading/Loading';
 
 async function validaExistenciaToken() {  
   try {
@@ -39,7 +40,7 @@ export default function Welcome() {
 
     if(!carregado){
       return (
-        <Text>Aguarde</Text>
+        <Loading/>
       );
     }
     if (existeToken) {
