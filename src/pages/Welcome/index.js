@@ -4,19 +4,31 @@ import {
     Text, 
     StyleSheet, 
     Image,
-    TouchableOpacity,
+    TouchableOpacity,    
   } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation} from '@react-navigation/native';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import validarToken from '../../services/ValidarLogin';
+
+async function validaExistenciaToken() {  
+  try {
+    const token = await validarToken();    
+    console.log(token);
+    if (token) {      
+      return true;
+    }
+    return false
+  } catch (erro) {
+    console.log("Deu pau: " + erro);
+  }
+}
 
 export default function Welcome() {
-    const navigation = useNavigation();    
-    // const token2 = await AsyncStorage.getItem('instalura_token');
-    // console.log(token);
-    // // if(AsyncStorage.getItem('instalura_token')){
-    // //   navigation.navigate('Home');
-    // // }        
+    const navigation = useNavigation();        
+    const tokenExiste = validaExistenciaToken();
+    //console.log(tokenExiste);
+    
   return (
     <View style={styles.container}>
       <Image style={styles.containerFundo}

@@ -9,16 +9,15 @@ import {
 import { Card, Button, Searchbar } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation} from '@react-navigation/native';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Home() {
     const navigation = useNavigation(); 
 
     const deslogar = async () => {
-      try{            
-        AsyncStorage.removeItem('instalura_token');   
-        console.log(AsyncStorage.getItem('instalura_token'));           
-        navigation.navigate('Welcome');
+      try{                    
+        await AsyncStorage.removeItem('token');                 
+        navigation.replace('Welcome');
       }catch(erro){
         setMessageErro(erro.message);
       }    
