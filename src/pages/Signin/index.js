@@ -33,34 +33,42 @@ export default function Signin() {
         <Image style={styles.containerFundo}
             source={require('../../assets/fundo.png')}
         />        
+        <View style={styles.containerLogoLogin}>
+          <Animatable.Image 
+            source={require('../../assets/logoPreto.png')} 
+            style={styles.logoLogin}
+            animation="flipInY"
+          />             
+        </View>        
+        <View style={styles.containerCamposLogin}>
+          <TextInputMask 
+            type={'cpf'}        
+            value={cpf}
+            onChangeText={text => setcpf(text)}          
+            style={styles.inputLogin} 
+            placeholder="Digite seu CPF"           
+          />            
+          <TextInput
+            style={styles.inputLogin}          
+            secureTextEntry={true}
+            onChangeText={text => setSenha(text)}
+            placeholder="Digite sua senha"           
+          />
+          <Text style={styles.messageErro}>{messageErro}</Text>
+          <TouchableOpacity 
+            style={styles.buttonLoginCadastrar}
+            onPress={tentarLogar}
+          >              
+            <Text style={styles.buttonTextLoginCadastrar}>Acessar</Text>
+          </TouchableOpacity>
 
-        <TextInputMask 
-          type={'cpf'}        
-          value={cpf}
-          onChangeText={text => setcpf(text)}          
-          style={styles.inputLogin} 
-          placeholder="Digite seu CPF"           
-        />            
-        <TextInput
-          style={styles.inputLogin}          
-          secureTextEntry={true}
-          onChangeText={text => setSenha(text)}
-          placeholder="Digite sua senha"           
-        />
-        <Text style={styles.messageErro}>{messageErro}</Text>
-        <TouchableOpacity 
-          style={styles.buttonLoginCadastrar}
-          onPress={tentarLogar}
-        >        
-          <Text style={styles.buttonTextLoginCadastrar}>Acessar</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity 
-          style={styles.buttonRegisterLogin}
-          onPress={() => navigation.navigate('RegisterMotorista')}
-        >
-          <Text style={styles.registerText}>Ainda Não possui uma conta? Cadastre-se agora!</Text>
-        </TouchableOpacity>                            
+          <TouchableOpacity 
+            style={styles.buttonRegisterLogin}
+            onPress={() => navigation.navigate('RegisterMotorista')}
+          >
+            <Text style={styles.registerText}>Ainda Não possui uma conta? Cadastre-se agora!</Text>
+          </TouchableOpacity>  
+        </View>                          
       </Animatable.View>      
     </View>
   );

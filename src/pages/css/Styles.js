@@ -10,6 +10,7 @@ import {StyleSheet} from 'react-native';
       marginBottom: '8%',
       paddingStart: '5%',    
     },
+    
     messageLogin: {
       fontSize: 28,
       fontWeight: 'bold',    
@@ -20,6 +21,16 @@ import {StyleSheet} from 'react-native';
       fontWeight: 'bold',
       color: '#FF0000',
     },
+    containerLogoLogin: {    
+      flex: 2,    
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    logoLogin: {      
+      marginTop: '80%',
+      width: '80%',
+      resizeMode: 'contain',
+    },   
     containerFormLogin: {      
       flex: 1,
       backgroundColor: '#FFFFFF',
@@ -28,6 +39,9 @@ import {StyleSheet} from 'react-native';
       paddingStart: '5%', 
       paddingEnd: '5%',
     },  
+    containerCamposLogin:{
+      marginTop: '80%',
+    },
     title: {    
       fontSize: 20,
       marginTop: 28,    
@@ -66,8 +80,9 @@ import {StyleSheet} from 'react-native';
       fontWeight: 'bold',
     },
     buttonRegisterLogin: {
-      marginTop: 30,
-      alignSelf: 'center',    
+      
+      alignSelf: 'center',
+      marginBottom: '50%',
     },
     registerTextLogin: {
       color: '#a1a1a1',
@@ -117,6 +132,7 @@ import {StyleSheet} from 'react-native';
   },
   textoBotaoVisualizar: {
     color: '#FFFFFF',
+    fontSize: 10,
   },
   botaoCompartilhar:{
     backgroundColor: '#1D253B',     
@@ -124,6 +140,7 @@ import {StyleSheet} from 'react-native';
   },
   textoBotaoCompartilhar: {
     color: '#FFFFFF',    
+    fontSize: 10,
   },
   containerHeader: {
     marginTop: '4%',
@@ -165,8 +182,10 @@ import {StyleSheet} from 'react-native';
   },
   card: {
       marginTop: '4%',        
-      paddingEnd: '3%'  
+      paddingEnd: '3%',
+      height: '20%',
   }
+
 });
 
 export default styles;
