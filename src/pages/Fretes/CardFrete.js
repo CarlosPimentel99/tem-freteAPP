@@ -3,6 +3,10 @@ import { Card, Button } from 'react-native-paper';
 import { Text, StyleSheet, Image } from 'react-native';
 import { useNavigation} from '@react-navigation/native';
 import styles from '../css/Styles';
+import TituloCard from './TituloCard';
+import TipoCaminhaoCard from './TipoCaminhaoCard';
+import LocalEntregaCard from './LocalEntregaCard';
+import LocalColetaCard from './LocalColetaCard';
 
 function teste ({valor}){
     return [valor, valor * 2, valor * 3];
@@ -19,16 +23,10 @@ export default function CardFrete({frete}){
 
     return (
         <Card style={styles.card}>
-          <Card.Title title={frete.titulo}/>                                    
-          <Card.Content>
-              <Text style={styles.text}>Caminhão: Carreta</Text>                
-          </Card.Content>
-          <Card.Content>
-              <Text style={styles.text}>De: São Paulo - SP</Text>                
-          </Card.Content>
-          <Card.Content>
-              <Text style={styles.text}>Para: Cuíaba - MT</Text>                
-          </Card.Content>          
+          <TituloCard frete={frete}/>          
+          <TipoCaminhaoCard frete={frete}/>
+          <LocalColetaCard frete={frete}/>
+          <LocalEntregaCard frete={frete}/>        
             <Button style={stylesLocal.buttonCardVisualizar} onPress={() => navigation.navigate('Signin')}>
               <Image 
                 source={require('../../assets/icons/iconeVisualizar.png')}
@@ -64,6 +62,4 @@ const stylesLocal = StyleSheet.create({
     backgroundColor: '#1D253B',
     alignSelf: 'flex-end',    
   },
-  icone:{               
-  }
 });

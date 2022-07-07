@@ -183,7 +183,18 @@ import {StyleSheet} from 'react-native';
   card: {
       marginTop: '4%',        
       paddingEnd: '3%',
-      height: 140,
+      height: 160,
+  },
+  titulosCard: {
+      marginStart: '3%',
+      fontSize: 14,
+      color: '#6C757D',
+  },
+  textoCard: {
+      marginStart: '3%',
+      fontSize: 14,
+      color: '#1D253B',        
+      fontWeight: 'bold',
   }
 
 });
