@@ -183,7 +183,7 @@ import {StyleSheet} from 'react-native';
   card: {
       marginTop: '4%',        
       paddingEnd: '3%',
-      height: '20%',
+      height: 140,
   }
 
 });

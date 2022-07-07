@@ -13,8 +13,7 @@ import Loading from '../Loading/Loading';
 
 async function validaExistenciaToken() {  
   try {
-    const token = await validarToken();    
-    console.log(token);
+    const token = await validarToken();        
     if (token) {      
       return true;
     }

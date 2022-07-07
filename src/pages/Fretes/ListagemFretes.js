@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
 import CardFrete from './CardFrete';
 import Loading from '../Loading/Loading';
-import styles from '../css/Styles';
+import listarFretes from '../../services/ListarFretes';
+import { ScrollView } from 'react-native';
 
 const teste = [ {
   titulo: 'Frete 1',
 }, {
   titulo: 'Frete 2',
 }];
+
+async function consultarFretes(){
+  const fretes = await listarFretes();
+  return fretes;
+}
 
 export default function ListagemFretes(){  
   const [fretes, setFretes] = React.useState([]);    
@@ -17,11 +23,13 @@ export default function ListagemFretes(){
     if(carregado){
       return;
     }     
+    console.log("Cheguei");
+    consultarFretes().then(res => {
+      setFretes(res);
+      setCarregado(true);    
+    }).catch(err => {
 
-    // const fretes = await consultarFretes();
-        
-    setFretes(teste);
-    setCarregado(true);
+    });       
   }, [carregado]);
   
   if(!carregado){
@@ -30,14 +38,14 @@ export default function ListagemFretes(){
     );
   }
 
-    return(
-        <>        
-          {
-            fretes.map((frete, index) => {
-              return <CardFrete key={index} frete={frete} />
-            })
-          }                    
-        </>
+    return(        
+         <ScrollView> 
+            {            
+              fretes.map((frete, index) => {
+                return <CardFrete key={index} frete={frete} />
+              })
+            }      
+          </ScrollView>        
     );
 
 }
