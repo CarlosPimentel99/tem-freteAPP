@@ -9,9 +9,30 @@ import { useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ListagemFretes from '../Fretes/ListagemFretes';
 import LayoutPadrao from '../Base/LayoutPadrao';
+import Loading from '../Loading/Loading';
+import { validaExistenciaToken } from '../Welcome/validaExistenciaToken';
 
 export default function Home() {
     const navigation = useNavigation(); 
+    const [existeToken, setExisteToken] = React.useState(false);  
+    const [carregado, setCarregado] = React.useState(false);    
+
+    validaExistenciaToken().then(res => {
+      setExisteToken(res);
+      setCarregado(true);
+    }
+    ).catch(err => {
+
+    });
+
+    if(!carregado){
+      return (
+        <Loading/>
+      );
+    }
+    if (!existeToken) {
+      navigation.replace('Welcome');
+    }
 
     const deslogar = async () => {
       try{                    
@@ -20,7 +41,7 @@ export default function Home() {
       }catch(erro){
         setMessageErro(erro.message);
       }    
-    }
+    }    
 
     return (
       <View style={styles.container}>

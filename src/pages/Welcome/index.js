@@ -8,21 +8,8 @@ import {
   } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation} from '@react-navigation/native';
-import validarToken from '../../services/ValidarToken';
 import Loading from '../Loading/Loading';
-
-async function validaExistenciaToken() {  
-  try {
-    const token = await validarToken();        
-    if (token) {      
-      return true;
-    }
-    return false
-  } catch (erro) {
-    console.log(erro);
-    return false;    
-  }
-}
+import { validaExistenciaToken } from './validaExistenciaToken';
 
 export default function Welcome() {
     const navigation = useNavigation();

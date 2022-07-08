@@ -159,13 +159,14 @@ import {StyleSheet} from 'react-native';
     alignSelf: 'flex-end',
     backgroundColor: '#ffffff',
     width: '20%',
+    height: 30,    
     borderRadius: 4,                
     justifyContent: 'center',
     alignItems: 'center',    
     marginEnd: '3%',    
     },    
   Logout: {
-    fontSize: 20,        
+    fontSize: 15,        
     color: '#DF4B48',                        
   },    
   containerForm: {      

@@ -8,7 +8,7 @@ import {
   } from 'react-native';
 import styles from '../css/Styles';
 import * as Animatable from 'react-native-animatable';
-import LayoutPadrao from '../Base/LayoutPadrao';
+import LayoutPadraoVoltar from '../Base/LayoutPadraoVoltar';
 import { useNavigation} from '@react-navigation/native';
 import TituloCard from './TituloCard';
 import TipoCaminhaoCard from './TipoCaminhaoCard';
@@ -29,7 +29,7 @@ export default function ExibicaoFrete({ route, navegar }) {
 
     return (
       <View style={styles.container}>
-        <LayoutPadrao/>
+        <LayoutPadraoVoltar/>
       
         <Animatable.View animation="fadeInUp" delay={1000} style={styles.containerForm}>                
           <Image style={styles.containerFundo}
