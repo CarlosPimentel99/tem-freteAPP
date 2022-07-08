@@ -27,7 +27,8 @@ export default function CardFrete({frete}){
           <TipoCaminhaoCard frete={frete}/>
           <LocalColetaCard frete={frete}/>
           <LocalEntregaCard frete={frete}/>        
-            <Button style={stylesLocal.buttonCardVisualizar} onPress={() => navigation.navigate('Signin')}>
+            <Button style={stylesLocal.buttonCardVisualizar} onPress={() => navigation.navigate('ExibicaoFrete', {frete})
+            }>
               <Image 
                 source={require('../../assets/icons/iconeVisualizar.png')}
                 style={stylesLocal.icone}
@@ -49,14 +50,14 @@ export default function CardFrete({frete}){
 
 const stylesLocal = StyleSheet.create({
   buttonCardVisualizar: {
-    width: 140,
+    width: 180,
     position: 'absolute',
     marginTop: 30,
     alignSelf: 'flex-end',                      
     backgroundColor: '#DF4B48',
   },
   buttonCardCompartilhar: {  
-    width: 140,
+    width: 180,
     position: 'absolute',
     marginTop: 80,
     backgroundColor: '#1D253B',

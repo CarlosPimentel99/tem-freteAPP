@@ -1,9 +1,7 @@
 import React from 'react';
 import { 
-    View, 
-    Text,     
-    Image,  
-    TouchableOpacity,
+    View,       
+    Image,      
   } from 'react-native';
 import styles from '../css/Styles';
 import * as Animatable from 'react-native-animatable';

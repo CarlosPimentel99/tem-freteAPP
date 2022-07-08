@@ -156,18 +156,17 @@ import {StyleSheet} from 'react-native';
       color: '#FFFFFF',    
   },
   button: {
-      alignSelf: 'flex-end',
-      backgroundColor: '#ffffff',
-      width: '20%',
-      borderRadius: 4,                
-      justifyContent: 'center',
-      alignItems: 'center',    
-      marginEnd: '3%',    
-
-    },
+    alignSelf: 'flex-end',
+    backgroundColor: '#ffffff',
+    width: '20%',
+    borderRadius: 4,                
+    justifyContent: 'center',
+    alignItems: 'center',    
+    marginEnd: '3%',    
+    },    
   Logout: {
-      fontSize: 20,        
-      color: '#DF4B48',                        
+    fontSize: 20,        
+    color: '#DF4B48',                        
   },    
   containerForm: {      
     flex: 2,
@@ -183,7 +182,13 @@ import {StyleSheet} from 'react-native';
   card: {
       marginTop: '4%',        
       paddingEnd: '3%',
-      height: 160,
+      height: 180,
+  },
+  cardExibicaoFrete: {
+    marginTop: '10%',        
+    paddingTop:'5%',
+    paddingEnd: '3%',
+    height: 300,
   },
   titulosCard: {
       marginStart: '3%',
