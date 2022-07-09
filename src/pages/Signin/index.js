@@ -46,7 +46,7 @@ export default function Signin() {
             value={cpf}
             onChangeText={text => setcpf(text)}          
             style={styles.inputLogin} 
-            placeholder="Digite seu CPF"           
+            placeholder="Digite seu CPF"         
           />            
           <TextInput
             style={styles.inputLogin}          

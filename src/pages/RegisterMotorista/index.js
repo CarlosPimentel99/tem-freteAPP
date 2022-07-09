@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Image} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, Alert} from 'react-native';
 import React, { useState } from 'react';
 import * as Animatable from 'react-native-animatable';
 import { TextInputMask } from 'react-native-masked-text';
@@ -13,6 +13,8 @@ import styles from '../css/Styles';
     const navigation = useNavigation(); 
     const [tipoMotorista, setTipoMotorista] = useState(['Autônomo', 'Funcionário', 'Gestor de Frota e Motorista', 'Gestor de Frota']);
     const [tipoMotoristaSelecionado, setTipoMotoristaSelecionado] = useState('');
+
+    const cpfx = useState();
 
     return (
       <View style={styles.containerRegisterMotorista}>
@@ -34,7 +36,14 @@ import styles from '../css/Styles';
                     value={cpf}
                     onChangeText={text => setcpf(text)}
                     style={styles.input} 
-                    placeholder="Digite seu CPF"           
+                    placeholder="Digite seu CPF"      
+                    onBlur={() => {
+                      if((cpf.length < 14) && (cpf.length > 0)){
+                        Alert.alert("CPF Inválido");
+                        setcpf('');
+                      }
+                    }}           
+                    key={cpfx}  
                 />                
                 <TextInputMask
                     type={'cel-phone'}
