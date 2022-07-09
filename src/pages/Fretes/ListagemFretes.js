@@ -22,7 +22,8 @@ export default function ListagemFretes(){
   useEffect(() =>  {
     if(carregado){
       return;
-    }         
+    }     
+    
     consultarFretes().then(res => {
       setFretes(res);
       setCarregado(true);    

@@ -5,16 +5,35 @@ import { TextInputMask } from 'react-native-masked-text';
 import { useNavigation} from '@react-navigation/native';
 import {Picker} from '@react-native-picker/picker';
 import styles from '../css/Styles';
+import CadastrarMotorista from '../../services/CadastrarMotorista';
 
   export default function RegisterMotorista() {
+    const navigation = useNavigation();     
+    const [messageErro, setMessageErro] = useState('');
+
     const [cell, setcell] = useState('');
     const [cpf, setcpf] = useState('');
-    const [placa, setPlaca] = useState('');    
-    const navigation = useNavigation(); 
+    const [placa, setPlaca] = useState('');
+    
+    const [nomeCompleto, setNomeCompleto] = useState('');
+    const [senha, setSenha] = useState('');
+    
     const [tipoMotorista, setTipoMotorista] = useState(['Autônomo', 'Funcionário', 'Gestor de Frota e Motorista', 'Gestor de Frota']);
-    const [tipoMotoristaSelecionado, setTipoMotoristaSelecionado] = useState('');
-
-    const cpfx = useState();
+    const [tipoMotoristaSelecionado, setTipoMotoristaSelecionado] = useState('');    
+    
+    const tentaCadastrar = async () => {
+      setMessageErro('');
+      try{                    
+        const mensagem = await CadastrarMotorista(nomeCompleto, cpf, cell, placa, tipoMotoristaSelecionado, senha);                                
+        console.log(mensagem);
+        if(mensagem === "sucesso"){
+          Alert.alert('Motorista cadastrado com sucesso!');
+          navigation.navigate('Home');
+        }
+      }catch(erro){
+        setMessageErro(erro.message);
+      }    
+    }
 
     return (
       <View style={styles.containerRegisterMotorista}>
@@ -29,21 +48,18 @@ import styles from '../css/Styles';
           <ScrollView>                
                 <TextInput
                     style={styles.input}                        
-                    placeholder="Nome Completo"           
+                    placeholder="Nome Completo"
+                    onChangeText={text => setNomeCompleto(text)}
+                    value={nomeCompleto}
+
                 />                                       
                 <TextInputMask 
                     type={'cpf'}        
                     value={cpf}
                     onChangeText={text => setcpf(text)}
                     style={styles.input} 
-                    placeholder="Digite seu CPF"      
-                    onBlur={() => {
-                      if((cpf.length < 14) && (cpf.length > 0)){
-                        Alert.alert("CPF Inválido");
-                        setcpf('');
-                      }
-                    }}           
-                    key={cpfx}  
+                    placeholder="Digite seu CPF"                                    
+                    //key={cpf}  
                 />                
                 <TextInputMask
                     type={'cel-phone'}
@@ -86,12 +102,16 @@ import styles from '../css/Styles';
                 <TextInput
                   style={styles.input}          
                   secureTextEntry={true}
-                  placeholder="Digite sua senha"           
+                  placeholder="Digite sua senha"
+                  onChangeText={text => setSenha(text)}      
+                  value={senha}
                 />
+
+                <Text style={styles.messageErro}>{messageErro}</Text>
 
                 <TouchableOpacity 
                     style={styles.buttonLoginCadastrar}
-                    onPress={() => navigation.navigate('Home')}
+                    onPress={tentaCadastrar}
                 >        
                     <Text style={styles.buttonTextLoginCadastrar}>Cadastrar</Text>
                 </TouchableOpacity>     
