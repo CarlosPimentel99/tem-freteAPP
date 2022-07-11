@@ -6,8 +6,8 @@ import {StyleSheet} from 'react-native';
       backgroundColor: '#DF4B48',
     },  
     containerHeaderLogin: {
-      marginTop: '14%',
-      marginBottom: '8%',
+      marginTop: '5%',
+      marginBottom: '5%',
       paddingStart: '5%',    
     },
     
@@ -56,7 +56,7 @@ import {StyleSheet} from 'react-native';
       paddingLeft: 20,
     },
     inputLogin: {
-      marginTop: 30,
+      marginTop: 20,
       borderRadius: 5,
       height: 50,
       fontSize: 16,
@@ -68,7 +68,7 @@ import {StyleSheet} from 'react-native';
       width: '80%',
       borderRadius: 4,
       paddingVertical: 8,
-      marginTop: 30,
+      marginTop: 20,
       justifyContent: 'center',
       alignItems: 'center',
       alignSelf: 'center',
@@ -133,6 +133,7 @@ import {StyleSheet} from 'react-native';
   textoBotaoVisualizar: {
     color: '#FFFFFF',
     fontSize: 10,
+    fontWeight: 'bold'
   },
   botaoCompartilhar:{
     backgroundColor: '#1D253B',     
@@ -141,6 +142,7 @@ import {StyleSheet} from 'react-native';
   textoBotaoCompartilhar: {
     color: '#FFFFFF',    
     fontSize: 10,
+    fontWeight: 'bold'
   },
   containerHeader: {
     marginTop: '4%',
@@ -201,6 +203,7 @@ import {StyleSheet} from 'react-native';
       fontSize: 14,
       color: '#1D253B',        
       fontWeight: 'bold',
+      paddingBottom: '1.5%',
   }
 
 });
