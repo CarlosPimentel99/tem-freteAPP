@@ -18,14 +18,13 @@ import CadastrarMotorista from '../../services/CadastrarMotorista';
     const [nomeCompleto, setNomeCompleto] = useState('');
     const [senha, setSenha] = useState('');
     
-    const [tipoMotorista, setTipoMotorista] = useState(['Autônomo', 'Funcionário', 'Gestor de Frota e Motorista', 'Gestor de Frota']);
+    const [tipoMotorista, setTipoMotorista] = useState(['Tipo Motorista','Autônomo', 'Funcionário', 'Gestor de Frota e Motorista', 'Gestor de Frota']);
     const [tipoMotoristaSelecionado, setTipoMotoristaSelecionado] = useState('');    
     
     const tentaCadastrar = async () => {
       setMessageErro('');
       try{                    
-        const mensagem = await CadastrarMotorista(nomeCompleto, cpf, cell, placa, tipoMotoristaSelecionado, senha);                                
-        console.log(mensagem);
+        const mensagem = await CadastrarMotorista(nomeCompleto, cpf, cell, placa, tipoMotoristaSelecionado, senha);                                        
         if(mensagem === "sucesso"){
           Alert.alert('Motorista cadastrado com sucesso!');
           navigation.navigate('Home');
@@ -88,14 +87,15 @@ import CadastrarMotorista from '../../services/CadastrarMotorista';
                 <Picker
                   style={styles.input}
                   selectedValue={tipoMotoristaSelecionado}
+                  value={tipoMotoristaSelecionado}                
                   onValueChange={(itemValue, itemIndex) =>
                     setTipoMotoristaSelecionado(itemValue)
-                  }
-                  placeholder="Tipo de Motorista"                    
+                  }        
+
                 >
-                    {
-                      tipoMotorista.map(tipo => {
-                          return <Picker.Item label={tipo} value={tipo} />
+                    {                      
+                      tipoMotorista.map(tipo => {                        
+                          return <Picker.Item label={tipo} value={tipo} />                        
                       })
                     }                
                 </Picker>                                

@@ -2,13 +2,13 @@ import axios from "axios";
 
 const baseURL = "http://temfretecarga.com/temfreteapi/public/api/v1";
 
-const CadastrarMotorista = async (nomeCompleto, cpf, cell, placa, tipoMotorista, senha) => {
+const CadastrarMotorista = async (nomeCompleto, cpf, cell, placa, tipoMotoristaSelecionado, senha) => {
 
     const url = `${baseURL}/motoristas/adiciona`;
 
     const cpfLogin = cpf.replace(/[^\d]+/g,'');        
 
-    if(nomeCompleto.length < 3) {
+    if(nomeCompleto.length < 10) {
         throw new Error("Nome Completo inválido!");
     }else if (cpfLogin.length < 11) {
         throw new Error("CPF inválido!!!!");
@@ -16,18 +16,19 @@ const CadastrarMotorista = async (nomeCompleto, cpf, cell, placa, tipoMotorista,
         throw new Error("Telefone inválido!");
     }else if (placa.length < 8) {
         throw new Error("Placa inválida!");
-    }else if (tipoMotorista.length < 1) {
+    }else if (tipoMotoristaSelecionado.length < 1 || tipoMotoristaSelecionado == "Tipo Motorista") {
         throw new Error("Tipo de Motorista inválido!");
     }else if(senha.length < 4) {
         throw new Error("Informar uma senha maior que 4 caracteres!");
-    }        
+    }            
 
     const response = await axios.post(url, {
         nome: nomeCompleto,
         telefone: cell,
         cpf: cpfLogin,
         senha: senha,
-        placa: placa
+        placa: placa,
+        tipoMotorista: tipoMotoristaSelecionado
     });
 
     if(response.status === 200) {
