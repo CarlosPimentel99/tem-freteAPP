@@ -7,16 +7,24 @@ import TituloCard from './TituloCard';
 import TipoCaminhaoCard from './TipoCaminhaoCard';
 import LocalEntregaCard from './LocalEntregaCard';
 import LocalColetaCard from './LocalColetaCard';
+import Compartilhar from '../../services/Compartilhar';
 
-function teste ({valor}){
-    return [valor, valor * 2, valor * 3];
-}
+// function teste ({valor}){
+//     return [valor, valor * 2, valor * 3];
+// }
 
-const obj = {
-    valor: 123
-};
+// const obj = {
+//     valor: 123
+// };
 
-const [x1,x2,x3] = teste(obj);
+// const [x1,x2,x3] = teste(obj);
+
+// const compartilharFrete = (frete) => {
+//   const mensagem = 'Ola! da uma conferida nesse Frete: ' + frete.titulo + '\n' + 'Tipo de caminhão: ' + frete.tp_caminhao + '\n' + 'Local de coleta: ' + frete.local_coleta + ' \n' + 'Local de entrega: ' + frete.local_entrega + '\n' + 'Não tem o app? Baixe e aproveite: https://play.google.com/store/apps/details?id=com.temfretecarga';  
+
+//   Compartilhar(mensagem);
+// }
+
 
 export default function CardFrete({frete}){
   const navigation = useNavigation();  
@@ -37,7 +45,7 @@ export default function CardFrete({frete}){
                     Visualizar
               </Text>
             </Button>
-            <Button onPress={() => navigation.navigate('Loading')} style={stylesLocal.buttonCardCompartilhar}>            
+            <Button /*onPress={() => compartilharFrete(frete)}*/ style={stylesLocal.buttonCardCompartilhar}>            
               <Image 
                 source={require('../../assets/icons/iconeCompartilhar.png')}
                 style={stylesLocal.icone}
