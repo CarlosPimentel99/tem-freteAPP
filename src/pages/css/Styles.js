@@ -40,7 +40,7 @@ import {StyleSheet} from 'react-native';
       paddingEnd: '5%',
     },  
     containerCamposLogin:{
-      marginTop: '80%',
+      marginTop: '75%',
     },
     title: {    
       fontSize: 20,
@@ -80,7 +80,7 @@ import {StyleSheet} from 'react-native';
       fontWeight: 'bold',
     },
     buttonRegisterLogin: {
-      
+      marginTop: '5%',
       alignSelf: 'center',
       marginBottom: '50%',
     },
