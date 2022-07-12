@@ -10,7 +10,7 @@ export default function TituloCard({frete}){
                     source={require('../../assets/icons/IconeTituloFrete.png')}                
                     style={styles.icone}
                 />
-                Titulo
+                Tipo de Carga
                 </Text>
             <Text style={styles.textoCard}>{frete.titulo}</Text>
         </>

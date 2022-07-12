@@ -41,9 +41,8 @@ export default function ExibicaoFrete({ route, navegar }) {
             <PesoCarga frete={frete}/>
             <LocalColetaCard frete={frete}/>
             <LocalEntregaCard frete={frete}/>                    
-            <ValorCarga frete={frete}/>
-            <Text style={styles.textoBotaoCompartilhar}>Compartilhar</Text>            
-        </Card>
+            <ValorCarga frete={frete}/>                       
+          </Card>
 
         <TouchableOpacity 
             style={styles.buttonLoginCadastrar}

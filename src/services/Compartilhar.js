@@ -1,5 +1,4 @@
-//import Share from 'react-native-share';
-import { Alert } from 'react-native';
+import { Share } from 'react-native';
 
 const Compartilhar = (conteudo) => {    
   // try{
