@@ -205,6 +205,12 @@ import {StyleSheet} from 'react-native';
       color: '#1D253B',        
       fontWeight: 'bold',
       paddingBottom: '1.5%',
+  },
+  iconeReload: {
+    position: 'absolute',
+    alignSelf: 'flex-end',                      
+    paddingEnd: '26%',    
+    paddingTop: '1%',
   }
 
 });
