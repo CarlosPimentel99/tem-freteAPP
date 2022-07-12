@@ -9,13 +9,6 @@ import LocalEntregaCard from './LocalEntregaCard';
 import LocalColetaCard from './LocalColetaCard';
 import Compartilhar from '../../services/Compartilhar';
 
-// const compartilharFrete = (frete) => {
-//   const mensagem = 'Ola! da uma conferida nesse Frete: ' + frete.titulo + '\n' + 'Tipo de caminhão: ' + frete.tp_caminhao + '\n' + 'Local de coleta: ' + frete.local_coleta + ' \n' + 'Local de entrega: ' + frete.local_entrega + '\n' + 'Não tem o app? Baixe e aproveite: https://play.google.com/store/apps/details?id=com.temfretecarga';  
-  
-//   Compartilhar(mensagem);
-// }
-
-
 export default function CardFrete({frete}){
   const navigation = useNavigation();  
 
