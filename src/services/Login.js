@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://temfretecarga.com/temfreteapi/public/api/v1";
+const baseURL = "https://temfretecarga.com/temfreteapi/public/api/v1";
 
 const efetuarLogin = async (usuarioLogin, senhaLogin) => {    
     const url = `${baseURL}/motoristas/validalogin`;

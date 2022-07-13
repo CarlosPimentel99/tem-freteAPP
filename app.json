@@ -25,7 +25,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.temFreteCarga"
+      "package": "com.temfretecarga",
+      "versionCode": 7
     },
     "web": {
       "favicon": "./assets/favicon.png"
