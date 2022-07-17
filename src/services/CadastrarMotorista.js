@@ -1,4 +1,5 @@
 import axios from "axios";
+import { cpf as validador } from 'cpf-cnpj-validator';
 
 const baseURL = "http://temfretecarga.com/temfreteapi/public/api/v1";
 
@@ -10,8 +11,8 @@ const CadastrarMotorista = async (nomeCompleto, cpf, cell, placa, tipoMotoristaS
 
     if(nomeCompleto.length < 10) {
         throw new Error("Nome Completo inválido!");
-    }else if (cpfLogin.length < 11) {
-        throw new Error("CPF inválido!!!!");
+    }else if ((cpfLogin.length < 11) || (!validador.isValid(cpf))) {
+        throw new Error("CPF inválido!");
     }else if (cell.length < 14) {
         throw new Error("Telefone inválido!");
     }else if (placa.length < 8) {

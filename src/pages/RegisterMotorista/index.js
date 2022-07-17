@@ -6,6 +6,7 @@ import { useNavigation} from '@react-navigation/native';
 import {Picker} from '@react-native-picker/picker';
 import styles from '../css/Styles';
 import CadastrarMotorista from '../../services/CadastrarMotorista';
+import { cpf as validador } from 'cpf-cnpj-validator';
 
   export default function RegisterMotorista() {
     const navigation = useNavigation();     
@@ -34,6 +35,12 @@ import CadastrarMotorista from '../../services/CadastrarMotorista';
       }    
     }
 
+    const validarCPF = () => {
+      if(!validador.isValid(cpf)){
+        Alert.alert('CPF informado é inválido');
+      }      
+    }
+
     return (
       <View style={styles.containerRegisterMotorista}>
         <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeaderRegisterMotorista}>
@@ -58,6 +65,7 @@ import CadastrarMotorista from '../../services/CadastrarMotorista';
                     onChangeText={text => setcpf(text)}
                     style={styles.input} 
                     placeholder="Digite seu CPF"                                    
+                    onBlur={validarCPF}
                     //key={cpf}  
                 />                
                 <TextInputMask
