@@ -27,7 +27,7 @@
       },
       "permissions":["INTERNET","SYSTEM_ALERT_WINDOW","WAKE_LOCK","MANAGE_DOCUMENTS","READ_INTERNAL_STORAGE","READ_PHONE_STATE","USE_FINGERPRINT","INSTALL_SHORTCUT","VIBRATE","READ_EXTERNAL_STORAGE","WRITE_EXTERNAL_STORAGE","WRITE_SETTINGS"],
       "package": "com.temfretecarga",
-      "versionCode": 8
+      "versionCode": 9
     },
     "web": {
       "favicon": "./assets/favicon.png"
