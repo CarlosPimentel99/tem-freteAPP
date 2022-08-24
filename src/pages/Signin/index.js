@@ -67,8 +67,23 @@ export default function Signin() {
             style={styles.buttonRegisterLogin}
             onPress={() => navigation.navigate('RegisterMotorista')}
           >
-            <Text style={styles.registerText}>Ainda Não possui uma conta? Cadastre-se agora!</Text>
+            <Text>Ainda Não possui uma conta? Cadastre-se agora!</Text>
           </TouchableOpacity>  
+          
+          <TouchableOpacity 
+            style={styles.buttonSuporte}           
+            onPress={() => navigation.navigate('Suporte')}        
+          >                                   
+            <Text style={styles.buttonTextSuporte}>
+              <Image 
+                  source={require('../../assets/icons/iconeMensagemSuporte.png')                  
+                }                
+                style={styles.iconeMensagemSuporte}
+              />
+              Suporte
+            </Text>
+          </TouchableOpacity>
+          
         </View>                          
       </Animatable.View>      
     </View>
@@ -79,6 +94,5 @@ const styleLocal = StyleSheet.create({
   texto: {
     fontSize: 20,
     color: '#ff0000',
-
   }
 });

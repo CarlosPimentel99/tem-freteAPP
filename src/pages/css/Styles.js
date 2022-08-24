@@ -55,6 +55,18 @@ import {StyleSheet} from 'react-native';
       backgroundColor: '#FFFFFF',             
       paddingLeft: 20,
     },
+    inputTextArea: {
+      paddingTop: 5,
+      marginTop: 30,      
+      borderRadius: 5,
+      height: 41,
+      marginBottom: 12,
+      fontSize: 16,
+      backgroundColor: '#FFFFFF',             
+      paddingLeft: 20,
+      height:200, 
+      textAlignVertical: 'top'
+    },
     inputLogin: {
       marginTop: 20,
       borderRadius: 5,
@@ -72,7 +84,23 @@ import {StyleSheet} from 'react-native';
       justifyContent: 'center',
       alignItems: 'center',
       alignSelf: 'center',
-      marginBottom: '5%',
+      marginBottom: '40%',
+    },
+    buttonSuporte: {
+      backgroundColor: '#FFFFFF',
+      width: '40%',     
+      marginTop: 20,      
+      borderRadius: 4,
+      paddingVertical: 8,          
+      alignSelf: 'center',      
+      alignItems: 'center',      
+      marginBottom: '5%',    
+      marginTop: '10%'
+    },
+    buttonTextSuporte: {
+      color: '#6C757D',
+      fontSize: 18,
+      fontWeight: 'bold',
     },
     buttonTextLoginCadastrar: {
       color: '#FFFFFF',
@@ -81,8 +109,7 @@ import {StyleSheet} from 'react-native';
     },
     buttonRegisterLogin: {
       marginTop: '5%',
-      alignSelf: 'center',
-      marginBottom: '50%',
+      alignSelf: 'center',      
     },
     registerTextLogin: {
       color: '#a1a1a1',
@@ -211,8 +238,8 @@ import {StyleSheet} from 'react-native';
     alignSelf: 'flex-end',                      
     paddingEnd: '26%',    
     paddingTop: '1%',
-  }
-
+  },  
+  
 });
 
 export default styles;

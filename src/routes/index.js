@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import RegisterMotorista from '../pages/RegisterMotorista';
 import Loading from '../pages/Loading/Loading';
 import ExibicaoFrete from '../pages/Fretes/ExibicaoFrete';
+import Suporte from '../pages/Suporte';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,12 @@ export default function Routes(){
                 component={ExibicaoFrete}
                 options={{headerShown: false}}
             />
+            <Stack.Screen
+                name='Suporte'
+                component={Suporte}
+                options={{headerShown: false}}
+            />
+
         </Stack.Navigator>
     )
 }
