@@ -5,6 +5,7 @@ import { TextInputMask } from 'react-native-masked-text';
 import { useNavigation} from '@react-navigation/native';
 import styles from '../css/Styles';
 import EnviarParaSuporte from '../../services/EnviarParaSuporte';
+import Loading from '../Loading/Loading';
 
 export default function Suporte() {  
 
@@ -13,21 +14,28 @@ export default function Suporte() {
 
     const [nomeCompleto, setNomeCompleto] = useState('');    
     const [cell, setcell] = useState('');  
-    const [mensagemSuporte, setMensagemSuporte] = useState('');    
+    const [mensagemSuporte, setMensagemSuporte] = useState('');
+
+    const [botaoHabilitado, setBotaoHabilitado] = useState(true);
+    const [carregado, setCarregado] = React.useState(false);    
 
     const enviarParaSuporte = async () => {  
         setMessageErro("");
         try{
+            setBotaoHabilitado(false);
+            console.log(botaoHabilitado);
             const mensagem = await EnviarParaSuporte(nomeCompleto, cell, mensagemSuporte);
             if(mensagem === "sucesso"){            
                 Alert.alert("Solicitação enviada com sucesso!");
                 navigation.replace('Signin');
             }else {
                  Alert.alert(mensagem);
+                setBotaoHabilitado(true);
             }
         }catch(erro){
             setMessageErro(erro.message);     
-        }                
+            setBotaoHabilitado(true);
+        }
     }
 
     return (
@@ -74,6 +82,7 @@ export default function Suporte() {
                   <TouchableOpacity 
                       style={styles.buttonLoginCadastrar}
                       onPress={enviarParaSuporte}
+                      disabled={!botaoHabilitado}
                   >        
                       <Text style={styles.buttonTextLoginCadastrar}>Enviar</Text>
                   </TouchableOpacity>     
