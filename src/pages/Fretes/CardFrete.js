@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-native-paper';
-import { Text, StyleSheet, Image, Share} from 'react-native';
+import { Text, StyleSheet, Image, Share, View} from 'react-native';
 import { useNavigation} from '@react-navigation/native';
 import styles from '../css/Styles';
 import TituloCard from './TituloCard';
@@ -35,10 +35,11 @@ export default function CardFrete({frete}){
 
     return (
         <Card style={styles.card}>
-          <TituloCard frete={frete}/>          
+          {/* <TituloCard frete={frete}/>           */}
           <TipoCaminhaoCard frete={frete}/>
           <LocalColetaCard frete={frete}/>
-          <LocalEntregaCard frete={frete}/>        
+          <LocalEntregaCard frete={frete}/>
+          <View style={stylesLocal.containerDoBotao}>
             <Button style={stylesLocal.buttonCardVisualizar} onPress={() => navigation.navigate('ExibicaoFrete', {frete})
             }>
               <Image 
@@ -49,30 +50,49 @@ export default function CardFrete({frete}){
                     Visualizar
               </Text>
             </Button>
-            <Button onPress={onShare} style={stylesLocal.buttonCardCompartilhar}>            
-              <Image 
-                source={require('../../assets/icons/iconeCompartilhar.png')}
-                style={stylesLocal.icone}
-              />
-              <Text style={styles.textoBotaoCompartilhar}>Compartilhar</Text>
+            <Button 
+              onPress={onShare} style={stylesLocal.buttonCardCompartilhar}
+              // icon={
+              //   require('../../assets/icons/iconeCompartilhar.png')
+              // }              
+              // mode="contained"
+              icon={() => (
+                <Image
+                  source={require('../../assets/icons/iconeCompartilhar.png')}
+                  style={{ marginStart: 10, marginTop: 5 }}
+                />
+              )}
+              mode="contained"
+            >              
+                <Text style={styles.textoBotaoCompartilhar}>
+                  Compartilhar
+                </Text>              
             </Button>          
+          </View>     
         </Card>
     );
 }
 
 const stylesLocal = StyleSheet.create({
-  buttonCardVisualizar: {
-    width: 180,
-    position: 'absolute',
-    marginTop: 40,
-    alignSelf: 'flex-end',                      
-    backgroundColor: '#DF4B48',
+  containerDoBotao: {
+    marginTop: 10,
+    marginStart: '5%',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginEnd: '5%',            
+  },
+  buttonCardVisualizar: { 
+    width: 140,
+    height: 40,
+    backgroundColor: '#DF4B48',        
   },
   buttonCardCompartilhar: {  
-    width: 180,
-    position: 'absolute',
-    marginTop: 100,
-    backgroundColor: '#1D253B',
-    alignSelf: 'flex-end',    
+    width: 140,
+    height: 40,
+    backgroundColor: '#1D253B',               
   },
+  icone: {    
+
+  }
 });

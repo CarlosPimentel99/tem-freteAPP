@@ -1,8 +1,5 @@
 import React from 'react';
 import Lottie from 'lottie-react-native';
-import {   
-  Text,   
-} from 'react-native';
 
 export default function Loading(){
     return (

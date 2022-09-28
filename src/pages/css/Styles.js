@@ -154,22 +154,21 @@ import {StyleSheet} from 'react-native';
 
   },
   botaoVisualizar: {
-    backgroundColor: '#DF4B48',   
-    marginRight: '2.5%', 
+    backgroundColor: '#DF4B48',       
   },
   textoBotaoVisualizar: {
     color: '#FFFFFF',
     fontSize: 10,
-    fontWeight: 'bold'
+    fontWeight: 'bold',    
   },
   botaoCompartilhar:{
-    backgroundColor: '#1D253B',     
-    marginLeft: '2.5%', 
+    backgroundColor: '#1D253B',         
   },
   textoBotaoCompartilhar: {
     color: '#FFFFFF',    
-    fontSize: 10,
-    fontWeight: 'bold'
+    fontSize: 11,
+    fontWeight: 'bold',
+    marginTop: 5,
   },
   containerHeader: {
     marginTop: '4%',
@@ -239,6 +238,9 @@ import {StyleSheet} from 'react-native';
     paddingEnd: '26%',    
     paddingTop: '1%',
   },  
+  scrollViewFrete:{
+    marginBottom: 100,
+  },
   
 });
 
