@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 
  const styles = StyleSheet.create({
+    botaoFlutuante: {
+      color: '#DF4B48',
+      backgroundColor: '#DF4B48',
+    },
     containerLogin: {
       flex: 1,
       backgroundColor: '#DF4B48',

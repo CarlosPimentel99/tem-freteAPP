@@ -5,13 +5,6 @@ import listarFretes from '../../services/ListarFretes';
 import { ScrollView, View, TextInput, Text } from 'react-native';
 import styles from '../css/Styles';
 
-
-const teste = [ {
-  titulo: 'Frete 1',
-}, {
-  titulo: 'Frete 2',
-}];
-
 async function consultarFretes(){
   const fretes = await listarFretes();
   return fretes;
@@ -56,25 +49,24 @@ export default function ListagemFretes(){
   }
 
     return(
-        <View>
-        <TextInput
-          style={styles.input}                        
-          placeholder="Pesquise pela cidade de coleta"
-          onChangeText={text => filtrarFrete(text)}          
-        />
-        {fretes.length > 0 ? 
-          <ScrollView 
-            style={styles.scrollViewFrete}
-            showsVerticalScrollIndicator={false}
-          > 
-            {          
-              fretes.map((frete, index) => {
-                return <CardFrete key={index} frete={frete} />
-              })
-            }      
-          </ScrollView> 
-          : <Text>Sem dados encontrados!</Text>}     
-         
+        <View>          
+          <TextInput
+            style={styles.input}                        
+            placeholder="Pesquise pela cidade de coleta"
+            onChangeText={text => filtrarFrete(text)}          
+          />
+          {fretes.length > 0 ? 
+            <ScrollView 
+              style={styles.scrollViewFrete}
+              showsVerticalScrollIndicator={false}
+            > 
+              {          
+                fretes.map((frete, index) => {
+                  return <CardFrete key={index} frete={frete} />
+                })
+              }      
+            </ScrollView> 
+            : <Text>Sem dados encontrados!</Text>}  
         </View>
     );
 
