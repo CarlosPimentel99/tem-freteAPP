@@ -29,7 +29,7 @@ export default function ExibicaoFrete({ route, navegar }) {
 
     return (
       <View style={styles.container}>
-        <LayoutPadraoVoltar/>
+        <LayoutPadraoVoltar titulo="Visualização de Frete"/>
       
         <Animatable.View animation="fadeInUp" delay={1000} style={styles.containerForm}>                
           <Image style={styles.containerFundo}

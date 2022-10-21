@@ -7,7 +7,7 @@ export default function BotaoVisualizar({frete}){
     const navigation = useNavigation();  
 
 return (
-        <Button style={styles.buttonCardVisualizar} onPress={() => navigation.navigate('BotaoFlutuante', {frete})}>
+        <Button style={styles.buttonCardVisualizar} onPress={() => navigation.navigate('ExibicaoFrete', {frete})}>
             <Image 
             source={require('../../../assets/icons/iconeVisualizar.png')}
             />

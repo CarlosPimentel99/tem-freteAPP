@@ -6,6 +6,7 @@ import RegisterMotorista from '../pages/RegisterMotorista';
 import Loading from '../pages/Loading/Loading';
 import ExibicaoFrete from '../pages/Fretes/ExibicaoFrete';
 import Suporte from '../pages/Suporte';
+import SolicitarCarga from '../pages/SolicitarCarga'
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,12 @@ export default function Routes(){
                 component={Suporte}
                 options={{headerShown: false}}
             />
+            <Stack.Screen
+                name='SolicitarCarga'
+                component={SolicitarCarga}
+                options={{headerShown: false}}
+            />
+
 
         </Stack.Navigator>
     )

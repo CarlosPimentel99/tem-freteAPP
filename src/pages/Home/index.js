@@ -89,7 +89,7 @@ export default function Home() {
                   icon: 'pencil',
                   label: 'Solicitar Carga',
                   color: '#DF4B48',
-                  onPress: () => alert('Nota de Texto'),
+                  onPress: () => navigation.navigate("SolicitarCarga"),
                   small: false,
                   },
               ]
