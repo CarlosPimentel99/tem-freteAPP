@@ -5,6 +5,9 @@ import {StyleSheet} from 'react-native';
       color: '#DF4B48',
       backgroundColor: '#DF4B48',
     },
+    textoBotaoFlutuante: {
+      fontWeight: 'bold',      
+    },
     containerLogin: {
       flex: 1,
       backgroundColor: '#DF4B48',
@@ -216,13 +219,12 @@ import {StyleSheet} from 'react-native';
       marginTop: '4%',
       paddingTop: '3%',        
       paddingEnd: '3%',
-      height: 220,
+      height: 220
   },
   cardExibicaoFrete: {
     marginTop: '10%',        
     paddingTop:'5%',
-    paddingEnd: '3%',
-    height: 330,
+    paddingEnd: '3%'    
   },
   titulosCard: {
       marginStart: '5%',
