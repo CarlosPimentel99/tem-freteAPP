@@ -65,32 +65,15 @@ export default function Home() {
               <FAB.Group              
               open={open}
               icon={open ? 'note' : 'plus'}                          
-              fabStyle={styles.botaoFlutuante}              
-              actions={[
-                  //{
-                  // icon: 'bell',
-                  // label: 'Lembrete',
-                  // color: 'blue',
-                  // onPress: () => alert('Nota com Lembrete'),
-                  // },
-                  // {
-                  // icon: 'microphone',
-                  // label: 'Áudio',
-                  // color: 'red',
-                  // onPress: () => alert('Nota de Áudio'),
-                  // },
-                  // {
-                  // icon: 'camera',
-                  // label: 'Câmera',
-                  // color: 'orange',
-                  // onPress: () => alert('Nota Visual'),
-                  // },
+              fabStyle={styles.botaoFlutuante}                      
+              actions={[                  
                   {
-                  icon: 'pencil',
-                  label: 'Solicitar Carga',
-                  color: '#DF4B48',
-                  onPress: () => navigation.navigate("SolicitarCarga"),
-                  small: false,
+                    icon: 'pencil',
+                    label: 'Solicitar Carga',                    
+                    color: '#DF4B48',
+                    labelTextColor: ['black', 'bold'],                    
+                    onPress: () => navigation.navigate("SolicitarCarga"),
+                    small: false                    
                   },
               ]
             }

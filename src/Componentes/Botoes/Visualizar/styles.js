@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     textoBotaoVisualizar: {
         color: '#FFFFFF',
-        fontSize: 10,
+        fontSize: 9.5,
         fontWeight: 'bold',    
       },
 });

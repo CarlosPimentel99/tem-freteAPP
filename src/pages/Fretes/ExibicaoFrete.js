@@ -17,6 +17,8 @@ import LocalColetaCard from './LocalColetaCard';
 import ValorCarga from './ValorCarga';
 import PesoCarga from './PesoCarga';
 import enviarMensagemWhatsApp from '../../services/EnviarMensagemWhasapp';
+import Observacao from './Observacao';
+
 
 export default function ExibicaoFrete({ route, navegar }) { 
     const navigation = useNavigation();   
@@ -35,12 +37,13 @@ export default function ExibicaoFrete({ route, navegar }) {
           <Image style={styles.containerFundo}
             source={require('../../assets/fundo.png')}
           />          
-          <Card style={styles.cardExibicaoFrete}>
+          <Card style={[styles.cardExibicaoFrete, {height: frete.observacao ? 420:330}]}>
             <TituloCard frete={frete}/>          
             <TipoCaminhaoCard frete={frete}/>
             <PesoCarga frete={frete}/>
             <LocalColetaCard frete={frete}/>
-            <LocalEntregaCard frete={frete}/>                    
+            <LocalEntregaCard frete={frete}/>           
+            {frete.observacao?<Observacao frete={frete}/>: <></>}
             <ValorCarga frete={frete}/>                       
           </Card>
 

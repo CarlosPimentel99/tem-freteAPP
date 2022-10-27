@@ -12,19 +12,19 @@ export default function SolicitarCarga(){
 
     const [nome, setNome] = React.useState();
     const [telefone, setTelefone] = React.useState();
-    const [tipoCaminhao, SetTipoCaminhao] = React.useState();
-    const [tipoBau, SetTipoBau ] = React.useState();
-    const [cidade, setCidade] = React.useState();    
+    const [tipoCaminhao, setTipoCaminhao] = React.useState();
+    const [tipoBau, setTipoBau ] = React.useState();
+    const [regiao, setRegiao] = React.useState();    
 
     const validarCampos = () =>{
         try {
-            if(nome.length < 10) {
+            if(nome == null || nome.length < 10) {
                 throw new Error("Nome Completo inválido!");
-            }else if (telefone.length < 14) {
+            }else if (telefone == null ||telefone.length < 14) {
                 throw new Error("Telefone inválido!");
-            }else if (tipoCaminhao.length < 4) {
+            }else if (tipoCaminhao == null || tipoCaminhao.length < 4) {
                 throw new Error("Tipo do Caminhão inválido!");
-            }else if (cidade.length < 2) {
+            }else if (regiao == null || regiao.length < 2) {
                 throw new Error("Região inválida");
             }
             
@@ -48,7 +48,7 @@ export default function SolicitarCarga(){
             telefone: telefone,
             tipoBau: tipoBauSelecionado,
             tipoCaminhao: tipoCaminhao,
-            cidade: cidade
+            regiao: regiao
         }
         
         if(validarCampos()){
@@ -92,7 +92,7 @@ export default function SolicitarCarga(){
                     <TextInput
                         style={styles.input}                        
                         placeholder="Tipo do Caminhão"
-                        onChangeText={text => SetTipoCaminhao(text)}
+                        onChangeText={text => setTipoCaminhao(text)}
                         value={tipoCaminhao}
                     />  
 
@@ -101,7 +101,7 @@ export default function SolicitarCarga(){
                         selected={tipoBau}
                         options={['Gancheiro', 'Liso']} 
                         horizontal={true} 
-                        onChangeSelect={(opt, i)=> SetTipoBau(i)}
+                        onChangeSelect={(opt, i)=> setTipoBau(i)}
                     />
 
                      
@@ -109,8 +109,8 @@ export default function SolicitarCarga(){
                     <TextInput
                         style={styles.input}                        
                         placeholder="Qual região deseja encontrar carga?"
-                        onChangeText={text => setCidade(text)}
-                        value={cidade}
+                        onChangeText={text => setRegiao(text)}
+                        value={regiao}
                     />       
 
                     <TouchableOpacity 

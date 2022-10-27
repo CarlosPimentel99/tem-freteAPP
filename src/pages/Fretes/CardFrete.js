@@ -8,15 +8,15 @@ import LocalEntregaCard from './LocalEntregaCard';
 import LocalColetaCard from './LocalColetaCard';
 import BotaoVisualizar from '../../Componentes/Botoes/Visualizar';
 import BotaoCompartilhar from '../../Componentes/Botoes/Compartilhar';
+import Observacao from './Observacao';
 
 export default function CardFrete({frete}){
   const navigation = useNavigation();  
     return (
-        <Card style={styles.card}>
-          {/* <TituloCard frete={frete}/>           */}
+        <Card style={styles.card}>          
           <TipoCaminhaoCard frete={frete}/>
           <LocalColetaCard frete={frete}/>
-          <LocalEntregaCard frete={frete}/>
+          <LocalEntregaCard frete={frete}/>          
           <View style={stylesLocal.containerDoBotao}>            
             <BotaoVisualizar frete={frete}/>         
             <BotaoCompartilhar frete={frete}/>
@@ -31,7 +31,7 @@ const stylesLocal = StyleSheet.create({
     marginStart: '5%',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginEnd: '5%',            
+    justifyContent: 'space-between',    
+    marginEnd: '5%',    
   },
 });
